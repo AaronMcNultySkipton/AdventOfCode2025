@@ -3,4 +3,12 @@
 Aaron McNulty
 
 ## How to Run
-Put input.txt into the day folder and run from the day folder
+Drop input into folder dayXInput.txt
+
+```bash
+go build
+```
+
+```bash
+go run .
+```
