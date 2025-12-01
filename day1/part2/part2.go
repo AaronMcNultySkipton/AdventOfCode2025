@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	content := readFile("inputTest.txt")
+	content := readFile("input.txt")
 
 	StartPosition := 50
 	Counter := 0
@@ -16,22 +16,33 @@ func main() {
 	CurrentPosition := StartPosition
 	for _, line := range content {
 		log.Printf(line)
+		value, _ := strconv.Atoi(line[1:])
 		switch line[0:1] {
 		case "R":
-			value, _ := strconv.Atoi(line[1:])
 			CurrentPosition += value
 		case "L":
-			value, _ := strconv.Atoi(line[1:])
 			CurrentPosition -= value
 		}
 
 		if CurrentPosition < 0 {
-			CurrentPosition = 100 + CurrentPosition
+			CurrentPosition += Offset
 		}
 
-		if CurrentPosition%Offset == 0 {
-			Counter += 1
+		switch line[0:1] {
+		case "R":
+			for i := 1; i <= value; i++ {
+				if (CurrentPosition-i)%Offset == 0 {
+					Counter += 1
+				}
+			}
+		case "L":
+			for i := 1; i <= value; i++ {
+				if (CurrentPosition+i)%Offset == 0 {
+					Counter += 1
+				}
+			}
 		}
+
 	}
 
 	log.Printf("Number of times at position 0: %v", Counter)
