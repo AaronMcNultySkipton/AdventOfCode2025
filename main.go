@@ -15,11 +15,11 @@ func main() {
 
 	// Day 4
 	//d4p1()
-	d4p2()
+	//d4p2()
 
 	// Day 5
 	//d5p1()
-	//d5p2()
+	d5p2()
 
 	// Day 6
 	//d6p1()
